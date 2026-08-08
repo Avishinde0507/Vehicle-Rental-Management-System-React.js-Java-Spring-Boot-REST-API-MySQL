@@ -1,6 +1,6 @@
 # 🚗 DriveX — Vehicle Rental Management System (VRMS)
 
-A full-stack Vehicle Rental Management System with React.js frontend, Java Spring Boot backend, and MySQL database.
+A full-stack Vehicle Rental Management System with React.js frontend, Java Spring Boot backend, and MySQL database.t provides secure authentication, vehicle management, availability tracking, online booking, Razorpay payments, reviews, complaints, profiles, and automated email notifications.
 
 ---
 
