@@ -103,18 +103,6 @@ Frontend runs at: **http://localhost:3000**
 
 ---
 
-## 👥 Demo Credentials
-
-| Role     | Email            | Password  |
-|----------|------------------|-----------|
-| Admin    | admin@demo.com   | admin123  |
-| Owner    | owner@demo.com   | demo123   |
-| Owner 2  | owner2@demo.com  | demo123   |
-| Customer | rahul@demo.com   | demo123   |
-| Customer | priya@demo.com   | demo123   |
-
----
-
 ## 📮 Postman Collection
 
 Import `docs/VRMS_Postman_Collection.json` into Postman to test all APIs.
