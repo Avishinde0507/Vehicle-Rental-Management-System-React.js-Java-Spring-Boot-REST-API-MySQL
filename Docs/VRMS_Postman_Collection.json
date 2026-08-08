@@ -1,0 +1,161 @@
+{
+  "info": {
+    "name": "DriveX VRMS API Collection",
+    "description": "Vehicle Rental Management System - REST API Collection\nBase URL: http://localhost:8080/api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080/api" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": { "raw": "{{baseUrl}}/users/login" },
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"admin@demo.com\",\n  \"password\": \"admin123\"\n}" }
+          }
+        },
+        {
+          "name": "Register Customer",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": { "raw": "{{baseUrl}}/users/register" },
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@demo.com\",\n  \"password\": \"test123\",\n  \"role\": \"customer\",\n  \"phone\": \"9876543299\",\n  \"city\": \"Mumbai\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/users" } }
+        },
+        {
+          "name": "Get User By ID",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/users/U001" } }
+        },
+        {
+          "name": "Get Users By Role",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/users/role/customer" } }
+        },
+        {
+          "name": "Toggle User Active",
+          "request": { "method": "PUT", "url": { "raw": "{{baseUrl}}/users/U001/toggle-active" } }
+        },
+        {
+          "name": "Delete User",
+          "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/users/U003" } }
+        }
+      ]
+    },
+    {
+      "name": "Vehicles",
+      "item": [
+        {
+          "name": "Get All Vehicles",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/vehicles" } }
+        },
+        {
+          "name": "Get Vehicle By ID",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/vehicles/V001" } }
+        },
+        {
+          "name": "Get Vehicles By Owner",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/vehicles/owner/U004" } }
+        },
+        {
+          "name": "Get Available Vehicles",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/vehicles/available" } }
+        },
+        {
+          "name": "Get Vehicles By Location",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/vehicles/location/Mumbai" } }
+        },
+        {
+          "name": "Add Vehicle",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": { "raw": "{{baseUrl}}/vehicles" },
+            "body": { "mode": "raw", "raw": "{\n  \"ownerId\": \"U004\",\n  \"name\": \"Bajaj Pulsar 150\",\n  \"brand\": \"Bajaj\",\n  \"model\": \"2025\",\n  \"type\": \"_2W\",\n  \"fuel\": \"Petrol\",\n  \"transmission\": \"Manual\",\n  \"seats\": 2,\n  \"regNumber\": \"MH01ZZ9999\",\n  \"priceDaily\": 600,\n  \"priceWeekly\": 3500,\n  \"priceMonthly\": 12000,\n  \"location\": \"Mumbai\",\n  \"image\": \"fa-motorcycle\",\n  \"color\": \"#e84393\",\n  \"description\": \"Popular sport commuter bike.\"\n}" }
+          }
+        },
+        {
+          "name": "Update Vehicle",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": { "raw": "{{baseUrl}}/vehicles/V001" },
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Honda Activa 6G (Updated)\",\n  \"brand\": \"Honda\",\n  \"model\": \"2026\",\n  \"type\": \"_2W\",\n  \"fuel\": \"Petrol\",\n  \"transmission\": \"Automatic\",\n  \"seats\": 2,\n  \"regNumber\": \"MH01AB1234\",\n  \"priceDaily\": 450,\n  \"priceWeekly\": 2500,\n  \"priceMonthly\": 8000,\n  \"location\": \"Mumbai\",\n  \"image\": \"fa-motorcycle\",\n  \"color\": \"#00b894\",\n  \"description\": \"Updated description.\"\n}" }
+          }
+        },
+        {
+          "name": "Delete Vehicle",
+          "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/vehicles/V001" } }
+        },
+        {
+          "name": "Approve Vehicle",
+          "request": { "method": "PUT", "url": { "raw": "{{baseUrl}}/vehicles/V012/approve?approved=true" } }
+        },
+        {
+          "name": "Update Vehicle Status",
+          "request": { "method": "PUT", "url": { "raw": "{{baseUrl}}/vehicles/V011/status?status=available" } }
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "Get All Bookings",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/bookings" } }
+        },
+        {
+          "name": "Get Booking By ID",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/bookings/B001" } }
+        },
+        {
+          "name": "Get Bookings By Customer",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/bookings/customer/U001" } }
+        },
+        {
+          "name": "Get Bookings By Owner",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/bookings/owner/U004" } }
+        },
+        {
+          "name": "Create Booking",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": { "raw": "{{baseUrl}}/bookings" },
+            "body": { "mode": "raw", "raw": "{\n  \"customerId\": \"U001\",\n  \"vehicleId\": \"V005\",\n  \"ownerId\": \"U004\",\n  \"startDate\": \"2026-04-10\",\n  \"endDate\": \"2026-04-15\",\n  \"durationType\": \"daily\",\n  \"totalPrice\": 16000\n}" }
+          }
+        },
+        {
+          "name": "Approve Booking (set Active)",
+          "request": { "method": "PUT", "url": { "raw": "{{baseUrl}}/bookings/B003/status?status=active" } }
+        },
+        {
+          "name": "Complete Booking",
+          "request": { "method": "PUT", "url": { "raw": "{{baseUrl}}/bookings/B001/status?status=completed" } }
+        },
+        {
+          "name": "Cancel Booking",
+          "request": { "method": "PUT", "url": { "raw": "{{baseUrl}}/bookings/B005/status?status=cancelled" } }
+        },
+        {
+          "name": "Check Vehicle Availability",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/bookings/availability?vehicleId=V005&startDate=2026-04-10&endDate=2026-04-15" } }
+        }
+      ]
+    }
+  ]
+}

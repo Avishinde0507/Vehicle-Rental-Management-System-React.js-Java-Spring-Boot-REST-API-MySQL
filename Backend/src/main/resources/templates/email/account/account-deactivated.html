@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="~{email/common/styles :: emailStyles}"></th:block>
+</head>
+<body style="background-color: #F8FAFC; margin: 0; padding: 20px 0;">
+
+  <!-- Main Container -->
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+    <tr>
+      <td align="center">
+        <!-- 600px Max Width Outer Table -->
+        <table border="0" cellpadding="0" cellspacing="0" width="600" class="email-container" style="background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E2E8F0; overflow: hidden;">
+          
+          <!-- Header Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/header :: emailHeader('Account Deactivated', 'DriveX Account Status Notice')}"></th:block>
+            </td>
+          </tr>
+
+          <!-- Main Content Card -->
+          <tr>
+            <td style="padding: 36px 32px;" class="content-padding">
+              
+              <!-- Status Badge -->
+              <div align="center" style="margin-bottom: 20px;">
+                <th:block th:replace="~{email/common/layout :: statusBadge('ACCOUNT DEACTIVATED', 'CANCELLED')}"></th:block>
+              </div>
+
+              <!-- Greeting Section -->
+              <h2 style="margin: 0 0 14px 0; color: #0F172A; font-size: 20px; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif;">
+                Hello <span th:text="${customerName != null ? customerName : 'Valued Customer'}">Valued Customer</span>,
+              </h2>
+
+              <p style="margin: 0 0 20px 0; color: #475569; font-size: 15px; line-height: 1.6; font-family: 'Segoe UI', Arial, sans-serif;">
+                Your DriveX VRMS account has been deactivated as per your request or due to administrative policy update.
+              </p>
+
+              <!-- Reason Info Box -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #FEF2F2; border-left: 4px solid #EF4444; border-radius: 6px; margin: 20px 0;">
+                <tr>
+                  <td style="padding: 16px 20px;">
+                    <h4 style="margin: 0 0 6px 0; color: #991B1B; font-size: 14px; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif;">Deactivation Reason:</h4>
+                    <p style="margin: 0; color: #7F1D1D; font-size: 14px; line-height: 1.5; font-family: 'Segoe UI', Arial, sans-serif;" th:text="${deactivationReason != null ? deactivationReason : 'User requested account deactivation via profile settings.'}">User requested account deactivation via profile settings.</p>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin: 0 0 20px 0; color: #475569; font-size: 14px; line-height: 1.6; font-family: 'Segoe UI', Arial, sans-serif;">
+                While deactivated, you will not be able to create new vehicle bookings or log in. All existing active bookings have been handled accordingly.
+              </p>
+
+              <!-- Call To Action Button -->
+              <div align="center">
+                <th:block th:replace="~{email/common/button :: outlineButton(${supportUrl != null ? supportUrl : 'mailto:support@drivex.com'}, 'Contact Support Team')}"></th:block>
+              </div>
+
+            </td>
+          </tr>
+
+          <!-- Footer Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/footer :: emailFooter}"></th:block>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

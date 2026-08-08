@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="~{email/common/styles :: emailStyles}"></th:block>
+</head>
+<body style="background-color: #F8FAFC; margin: 0; padding: 20px 0;">
+
+  <!-- Main Container -->
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+    <tr>
+      <td align="center">
+        <!-- 600px Max Width Outer Table -->
+        <table border="0" cellpadding="0" cellspacing="0" width="600" class="email-container" style="background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E2E8F0; overflow: hidden;">
+          
+          <!-- Header Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/header :: emailHeader('Refund Process Initiated', 'DriveX Financial Transaction Update')}"></th:block>
+            </td>
+          </tr>
+
+          <!-- Main Content Card -->
+          <tr>
+            <td style="padding: 36px 32px;" class="content-padding">
+              
+              <!-- Status Badge -->
+              <div align="center" style="margin-bottom: 20px;">
+                <th:block th:replace="~{email/common/layout :: statusBadge('REFUND INITIATED', 'REFUND')}"></th:block>
+              </div>
+
+              <!-- Greeting Section -->
+              <h2 style="margin: 0 0 14px 0; color: #0F172A; font-size: 20px; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif;">
+                Hello <span th:text="${customerName != null ? customerName : 'Valued Customer'}">Valued Customer</span>,
+              </h2>
+
+              <p style="margin: 0 0 20px 0; color: #475569; font-size: 15px; line-height: 1.6; font-family: 'Segoe UI', Arial, sans-serif;">
+                A refund has been successfully initiated for your DriveX rental booking <strong th:text="${bookingId != null ? bookingId : 'BK-55204'}">BK-55204</strong>.
+              </p>
+
+              <!-- Refund Details Table -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; margin: 24px 0;">
+                <tr>
+                  <td style="padding: 20px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td style="padding: 8px 0; font-size: 13px; color: #64748B; font-family: 'Segoe UI', Arial, sans-serif;">Refund Reference Number:</td>
+                        <td align="right" style="padding: 8px 0; font-size: 14px; color: #0F172A; font-weight: 700; font-family: 'Courier New', Consolas, monospace;" th:text="${transactionId != null ? transactionId : 'RFND_77182903'}">RFND_77182903</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 0; font-size: 13px; color: #64748B; font-family: 'Segoe UI', Arial, sans-serif;">Expected Processing Time:</td>
+                        <td align="right" style="padding: 8px 0; font-size: 14px; color: #0F172A; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif;">3 – 5 Business Days</td>
+                      </tr>
+                      <tr style="border-top: 1px solid #E2E8F0;">
+                        <td style="padding: 12px 0 0 0; font-size: 14px; color: #0F172A; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif;">Refund Amount:</td>
+                        <td align="right" style="padding: 12px 0 0 0; font-size: 20px; color: #7E22CE; font-weight: 900; font-family: 'Segoe UI', Arial, sans-serif;" th:text="${refundAmount != null ? '&#8377;' + refundAmount : '&#8377;4,500.00'}">&#8377;4,500.00</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin: 0 0 20px 0; color: #64748B; font-size: 13px; line-height: 1.5; font-family: 'Segoe UI', Arial, sans-serif;">
+                The refunded amount will reflect in your original payment method (bank account, credit card, or UPI wallet) according to your financial institution's processing schedule.
+              </p>
+
+              <!-- Call To Action Button -->
+              <div align="center">
+                <th:block th:replace="~{email/common/button :: secondaryButton(${bookingUrl != null ? bookingUrl : 'http://localhost:3000/my-bookings'}, 'Track Refund Status')}"></th:block>
+              </div>
+
+            </td>
+          </tr>
+
+          <!-- Footer Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/footer :: emailFooter}"></th:block>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

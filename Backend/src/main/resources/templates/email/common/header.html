@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+  <!-- DriveX Professional Email Header Fragment -->
+  <div th:fragment="emailHeader(headerTitle, subtitle)">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td align="center" bgcolor="#2563EB" style="background: linear-gradient(135deg, #2563EB 0%, #0EA5E9 100%); padding: 32px 24px; border-top-left-radius: 12px; border-top-right-radius: 12px;">
+          <!-- Logo & Brand Header Table -->
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td align="center">
+                <!-- DriveX Logo Mark -->
+                <table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" bgcolor="#FFFFFF" style="width: 48px; height: 48px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+                      <span style="font-size: 26px; font-weight: 900; color: #2563EB; font-family: 'Segoe UI', Arial, sans-serif; line-height: 48px;">X</span>
+                    </td>
+                    <td style="padding-left: 12px;" align="left">
+                      <span style="font-size: 28px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.5px; font-family: 'Segoe UI', Arial, sans-serif; display: block; line-height: 1.1;">Drive<span style="color: #67E8F9;">X</span></span>
+                      <span style="font-size: 11px; font-weight: 600; color: #E0F2FE; text-transform: uppercase; letter-spacing: 1.5px; font-family: 'Segoe UI', Arial, sans-serif;">Vehicle Rental Management</span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr th:if="${headerTitle != null}">
+              <td align="center" style="padding-top: 24px;">
+                <h1 th:text="${headerTitle}" style="margin: 0; color: #FFFFFF; font-size: 22px; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif; text-shadow: 0 1px 2px rgba(0,0,0,0.1);">Template Title</h1>
+                <p th:if="${subtitle != null}" th:text="${subtitle}" style="margin: 6px 0 0 0; color: #E0F2FE; font-size: 14px; font-family: 'Segoe UI', Arial, sans-serif;">Template Subtitle Description</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

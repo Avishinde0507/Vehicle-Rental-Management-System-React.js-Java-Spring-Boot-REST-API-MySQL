@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="~{email/common/styles :: emailStyles}"></th:block>
+</head>
+<body style="background-color: #F8FAFC; margin: 0; padding: 20px 0;">
+
+  <!-- Main Container -->
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+    <tr>
+      <td align="center">
+        <!-- 600px Max Width Outer Table -->
+        <table border="0" cellpadding="0" cellspacing="0" width="600" class="email-container" style="background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E2E8F0; overflow: hidden;">
+          
+          <!-- Header Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/header :: emailHeader('Trip Completed Successfully!', 'Thank You for Riding with DriveX')}"></th:block>
+            </td>
+          </tr>
+
+          <!-- Main Content Card -->
+          <tr>
+            <td style="padding: 36px 32px;" class="content-padding">
+              
+              <!-- Status Badge -->
+              <div align="center" style="margin-bottom: 20px;">
+                <th:block th:replace="~{email/common/layout :: statusBadge('TRIP COMPLETED', 'COMPLETED')}"></th:block>
+              </div>
+
+              <!-- Greeting Section -->
+              <h2 style="margin: 0 0 14px 0; color: #0F172A; font-size: 20px; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif;">
+                Thank You, <span th:text="${customerName != null ? customerName : 'Valued Customer'}" style="color: #2563EB;">Valued Customer</span>!
+              </h2>
+
+              <p style="margin: 0 0 20px 0; color: #475569; font-size: 15px; line-height: 1.6; font-family: 'Segoe UI', Arial, sans-serif;">
+                Your rental trip with <strong th:text="${vehicleName != null ? vehicleName : 'DriveX Vehicle'}">DriveX Vehicle</strong> (<span th:text="${bookingId != null ? bookingId : 'BK-100293'}">BK-100293</span>) has been completed. We hope you had a safe, comfortable, and memorable experience!
+              </p>
+
+              <!-- Trip Summary Table -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; margin: 24px 0;">
+                <tr>
+                  <td style="padding: 20px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td style="padding: 6px 0; font-size: 13px; color: #64748B; font-family: 'Segoe UI', Arial, sans-serif;">Vehicle Returned:</td>
+                        <td align="right" style="padding: 6px 0; font-size: 14px; color: #0F172A; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif;" th:text="${vehicleName != null ? vehicleName : 'Tesla Model 3'}">Tesla Model 3</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 6px 0; font-size: 13px; color: #64748B; font-family: 'Segoe UI', Arial, sans-serif;">Return Timestamp:</td>
+                        <td align="right" style="padding: 6px 0; font-size: 14px; color: #0F172A; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif;" th:text="${returnDate != null ? returnDate : 'Aug 05, 2026 at 05:45 PM'}">Aug 05, 2026 05:45 PM</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 6px 0; font-size: 13px; color: #64748B; font-family: 'Segoe UI', Arial, sans-serif;">Total Rental Amount:</td>
+                        <td align="right" style="padding: 6px 0; font-size: 16px; color: #166534; font-weight: 800; font-family: 'Segoe UI', Arial, sans-serif;" th:text="${bookingAmount != null ? '&#8377;' + bookingAmount : '&#8377;12,500.00'}">&#8377;12,500.00</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Dual CTA Buttons -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td align="center">
+                    <th:block th:replace="~{email/common/button :: primaryButton(${rateUrl != null ? rateUrl : 'http://localhost:3000/rate-experience'}, 'Rate Your Experience &#9733;')}"></th:block>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding-top: 10px;">
+                    <th:block th:replace="~{email/common/button :: outlineButton(${invoiceUrl != null ? invoiceUrl : 'http://localhost:3000/invoices'}, 'Download Trip Invoice')}"></th:block>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- Footer Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/footer :: emailFooter}"></th:block>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

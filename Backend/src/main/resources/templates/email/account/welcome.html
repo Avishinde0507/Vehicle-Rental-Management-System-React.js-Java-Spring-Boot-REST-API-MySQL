@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="~{email/common/styles :: emailStyles}"></th:block>
+</head>
+<body style="background-color: #F8FAFC; margin: 0; padding: 20px 0;">
+
+  <!-- Main Container -->
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+    <tr>
+      <td align="center">
+        <!-- 600px Max Width Outer Table -->
+        <table border="0" cellpadding="0" cellspacing="0" width="600" class="email-container" style="background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E2E8F0; overflow: hidden;">
+          
+          <!-- Header Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/header :: emailHeader('Welcome to DriveX!', 'Your Premium Vehicle Rental Journey Begins Now')}"></th:block>
+            </td>
+          </tr>
+
+          <!-- Main Content Card -->
+          <tr>
+            <td style="padding: 36px 32px;" class="content-padding">
+              
+              <!-- Greeting Section -->
+              <h2 style="margin: 0 0 16px 0; color: #0F172A; font-size: 20px; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif;">
+                Hello <span th:text="${customerName != null ? customerName : 'Valued Customer'}" style="color: #2563EB;">Valued Customer</span>,
+              </h2>
+
+              <p style="margin: 0 0 20px 0; color: #475569; font-size: 15px; line-height: 1.6; font-family: 'Segoe UI', Arial, sans-serif;">
+                Thank you for joining <strong>DriveX – Vehicle Rental Management System</strong>. We're thrilled to have you on board! Whether you're planning a weekend getaway, a business trip, or long-term vehicle rental, DriveX offers seamless booking and a premium fleet of vehicles tailored to your journey.
+              </p>
+
+              <!-- Feature Highlights Card -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; margin: 24px 0;">
+                <tr>
+                  <td style="padding: 20px;">
+                    <h3 style="margin: 0 0 14px 0; color: #1E293B; font-size: 15px; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif;">What you can do with DriveX:</h3>
+                    
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                      <tr>
+                        <td width="28" valign="top" style="font-size: 18px; color: #2563EB;">&#128663;</td>
+                        <td style="padding-bottom: 12px; font-size: 14px; color: #334155; font-family: 'Segoe UI', Arial, sans-serif;">
+                          <strong>Explore Diverse Vehicles:</strong> Choose from luxury sedans, SUVs, electric cars, and sports rides.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="28" valign="top" style="font-size: 18px; color: #2563EB;">&#9889;</td>
+                        <td style="padding-bottom: 12px; font-size: 14px; color: #334155; font-family: 'Segoe UI', Arial, sans-serif;">
+                          <strong>Instant Online Booking:</strong> Reserve vehicles instantly with real-time availability and transparent pricing.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="28" valign="top" style="font-size: 18px; color: #2563EB;">&#128179;</td>
+                        <td style="padding-bottom: 0; font-size: 14px; color: #334155; font-family: 'Segoe UI', Arial, sans-serif;">
+                          <strong>Secure Payments:</strong> Seamlessly manage rentals, download digital invoices, and track booking history.
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Call To Action Button -->
+              <div align="center">
+                <th:block th:replace="~{email/common/button :: primaryButton(${loginUrl != null ? loginUrl : 'http://localhost:3000/login'}, 'Access Your Account Now')}"></th:block>
+              </div>
+
+              <!-- Security Notice -->
+              <th:block th:replace="~{email/common/layout :: securityNotice('Keep your login credentials secure. If you did not create a DriveX account, please notify our support team immediately.')}"></th:block>
+
+            </td>
+          </tr>
+
+          <!-- Footer Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/footer :: emailFooter}"></th:block>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

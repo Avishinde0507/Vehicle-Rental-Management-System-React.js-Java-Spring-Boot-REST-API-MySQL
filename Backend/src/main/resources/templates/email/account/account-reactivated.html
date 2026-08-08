@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="~{email/common/styles :: emailStyles}"></th:block>
+</head>
+<body style="background-color: #F8FAFC; margin: 0; padding: 20px 0;">
+
+  <!-- Main Container -->
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+    <tr>
+      <td align="center">
+        <!-- 600px Max Width Outer Table -->
+        <table border="0" cellpadding="0" cellspacing="0" width="600" class="email-container" style="background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E2E8F0; overflow: hidden;">
+          
+          <!-- Header Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/header :: emailHeader('Welcome Back to DriveX!', 'Account Restoration Successful')}"></th:block>
+            </td>
+          </tr>
+
+          <!-- Main Content Card -->
+          <tr>
+            <td style="padding: 36px 32px;" class="content-padding">
+              
+              <!-- Status Badge -->
+              <div align="center" style="margin-bottom: 20px;">
+                <th:block th:replace="~{email/common/layout :: statusBadge('ACCOUNT RESTORED', 'APPROVED')}"></th:block>
+              </div>
+
+              <!-- Greeting Section -->
+              <h2 style="margin: 0 0 14px 0; color: #0F172A; font-size: 20px; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif;">
+                Welcome Back, <span th:text="${customerName != null ? customerName : 'Valued Customer'}" style="color: #2563EB;">Valued Customer</span>!
+              </h2>
+
+              <p style="margin: 0 0 20px 0; color: #475569; font-size: 15px; line-height: 1.6; font-family: 'Segoe UI', Arial, sans-serif;">
+                We are delighted to inform you that your DriveX VRMS account has been successfully reactivated. Full access to vehicle rentals, booking management, and account settings is now restored.
+              </p>
+
+              <!-- Features Box -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #F0FDF4; border: 1px solid #DCFCE7; border-radius: 10px; margin: 20px 0;">
+                <tr>
+                  <td style="padding: 18px 20px;">
+                    <p style="margin: 0; color: #166534; font-size: 14px; line-height: 1.5; font-family: 'Segoe UI', Arial, sans-serif;">
+                      &#10004; <strong>Ready to drive?</strong> You can immediately browse our current fleet and book your next vehicle.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Call To Action Button -->
+              <div align="center">
+                <th:block th:replace="~{email/common/button :: primaryButton(${loginUrl != null ? loginUrl : 'http://localhost:3000/login'}, 'Log In to DriveX')}"></th:block>
+              </div>
+
+            </td>
+          </tr>
+
+          <!-- Footer Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/footer :: emailFooter}"></th:block>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

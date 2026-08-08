@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="~{email/common/styles :: emailStyles}"></th:block>
+</head>
+<body style="background-color: #F8FAFC; margin: 0; padding: 20px 0;">
+
+  <!-- Main Container -->
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+    <tr>
+      <td align="center">
+        <!-- 600px Max Width Outer Table -->
+        <table border="0" cellpadding="0" cellspacing="0" width="600" class="email-container" style="background-color: #FFFFFF; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #E2E8F0; overflow: hidden;">
+          
+          <!-- Header Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/header :: emailHeader('Verify Your Email Address', 'Account Registration Security Verification')}"></th:block>
+            </td>
+          </tr>
+
+          <!-- Main Content Card -->
+          <tr>
+            <td style="padding: 36px 32px;" class="content-padding">
+              
+              <!-- Status Badge -->
+              <div align="center" style="margin-bottom: 20px;">
+                <th:block th:replace="~{email/common/layout :: statusBadge('EMAIL VERIFICATION', 'PENDING')}"></th:block>
+              </div>
+
+              <!-- Greeting Section -->
+              <h2 style="margin: 0 0 14px 0; color: #0F172A; font-size: 20px; font-weight: 700; font-family: 'Segoe UI', Arial, sans-serif; text-align: center;">
+                Hello <span th:text="${customerName != null ? customerName : 'Valued Customer'}">Valued Customer</span>,
+              </h2>
+
+              <p style="margin: 0 0 24px 0; color: #475569; font-size: 15px; line-height: 1.6; font-family: 'Segoe UI', Arial, sans-serif; text-align: center;">
+                Please enter the following 6-digit One-Time Password (OTP) to verify your email address and activate your DriveX account.
+              </p>
+
+              <!-- OTP Code Display Card -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 24px 0;">
+                <tr>
+                  <td align="center" style="background-color: #EFF6FF; border: 2px dashed #3B82F6; border-radius: 12px; padding: 24px 16px;">
+                    <span style="font-size: 12px; font-weight: 700; color: #1E40AF; text-transform: uppercase; letter-spacing: 2px; font-family: 'Segoe UI', Arial, sans-serif; display: block; margin-bottom: 8px;">Your Verification Code</span>
+                    <span class="otp-code" th:text="${otp != null ? otp : '123456'}" style="font-size: 36px; font-weight: 900; color: #1D4ED8; letter-spacing: 8px; font-family: 'Courier New', Consolas, monospace; display: block;">123456</span>
+                    <span style="font-size: 13px; color: #64748B; font-family: 'Segoe UI', Arial, sans-serif; display: block; margin-top: 10px;">
+                      &#9,200; Valid for <strong style="color: #DC2626;">10 Minutes</strong>
+                    </span>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Call To Action Button -->
+              <div align="center">
+                <th:block th:replace="~{email/common/button :: primaryButton(${verifyUrl != null ? verifyUrl : 'http://localhost:3000/verify-email'}, 'Verify Email Address')}"></th:block>
+              </div>
+
+              <!-- Security Notice Fragment -->
+              <th:block th:replace="~{email/common/layout :: securityNotice('This OTP was requested for account registration on DriveX. If you did not initiate this request, please ignore this email.')}"></th:block>
+
+            </td>
+          </tr>
+
+          <!-- Footer Fragment -->
+          <tr>
+            <td>
+              <th:block th:replace="~{email/common/footer :: emailFooter}"></th:block>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

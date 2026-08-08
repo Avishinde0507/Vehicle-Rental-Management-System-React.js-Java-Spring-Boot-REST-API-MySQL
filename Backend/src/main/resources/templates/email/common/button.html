@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+  <!-- Primary Button Fragment -->
+  <div th:fragment="primaryButton(url, label)">
+    <table border="0" cellpadding="0" cellspacing="0" style="margin: 20px 0;">
+      <tr>
+        <td align="center" bgcolor="#2563EB" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.25);">
+          <a th:href="${url}" th:text="${label}" target="_blank" style="display: inline-block; padding: 14px 28px; font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: 700; color: #FFFFFF; text-decoration: none; border-radius: 8px; border: 1px solid #2563EB;">Click Here</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Secondary Button Fragment -->
+  <div th:fragment="secondaryButton(url, label)">
+    <table border="0" cellpadding="0" cellspacing="0" style="margin: 20px 0;">
+      <tr>
+        <td align="center" bgcolor="#0EA5E9" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(14, 165, 233, 0.25);">
+          <a th:href="${url}" th:text="${label}" target="_blank" style="display: inline-block; padding: 14px 28px; font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: 700; color: #FFFFFF; text-decoration: none; border-radius: 8px; border: 1px solid #0EA5E9;">Click Here</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Success Button Fragment -->
+  <div th:fragment="successButton(url, label)">
+    <table border="0" cellpadding="0" cellspacing="0" style="margin: 20px 0;">
+      <tr>
+        <td align="center" bgcolor="#22C55E" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(34, 197, 94, 0.25);">
+          <a th:href="${url}" th:text="${label}" target="_blank" style="display: inline-block; padding: 14px 28px; font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: 700; color: #FFFFFF; text-decoration: none; border-radius: 8px; border: 1px solid #22C55E;">Click Here</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Warning Button Fragment -->
+  <div th:fragment="warningButton(url, label)">
+    <table border="0" cellpadding="0" cellspacing="0" style="margin: 20px 0;">
+      <tr>
+        <td align="center" bgcolor="#F59E0B" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(245, 158, 11, 0.25);">
+          <a th:href="${url}" th:text="${label}" target="_blank" style="display: inline-block; padding: 14px 28px; font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: 700; color: #FFFFFF; text-decoration: none; border-radius: 8px; border: 1px solid #F59E0B;">Click Here</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Danger Button Fragment -->
+  <div th:fragment="dangerButton(url, label)">
+    <table border="0" cellpadding="0" cellspacing="0" style="margin: 20px 0;">
+      <tr>
+        <td align="center" bgcolor="#EF4444" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(239, 68, 68, 0.25);">
+          <a th:href="${url}" th:text="${label}" target="_blank" style="display: inline-block; padding: 14px 28px; font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: 700; color: #FFFFFF; text-decoration: none; border-radius: 8px; border: 1px solid #EF4444;">Click Here</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Outline Button Fragment -->
+  <div th:fragment="outlineButton(url, label)">
+    <table border="0" cellpadding="0" cellspacing="0" style="margin: 20px 0;">
+      <tr>
+        <td align="center" bgcolor="#FFFFFF" style="border-radius: 8px; border: 2px solid #2563EB;">
+          <a th:href="${url}" th:text="${label}" target="_blank" style="display: inline-block; padding: 12px 26px; font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: 700; color: #2563EB; text-decoration: none; border-radius: 8px;">Click Here</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
